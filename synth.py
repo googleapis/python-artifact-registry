@@ -20,24 +20,7 @@ import synthtool as s
 import synthtool.gcp as gcp
 from synthtool.languages import python
 
-gapic = gcp.GAPICBazel()
 common = gcp.CommonTemplates()
-
-versions = ["v1beta2",
-
-            ]  # add new versions at the end of the list
-
-# ----------------------------------------------------------------------------
-# Generate artifactregistry GAPIC layer
-# ----------------------------------------------------------------------------
-for version in versions:
-    library = gapic.py_library(
-        service="artifactregistry",
-        version=version,
-        bazel_target=f"//google/devtools/artifactregistry/{version}:google-cloud-artifactregistry-{version}-py",
-    )
-
-    s.move(library, excludes=["nox.py", "setup.py", "README.rst", "docs/index.rst"])
 
 # ----------------------------------------------------------------------------
 # Add templated files
