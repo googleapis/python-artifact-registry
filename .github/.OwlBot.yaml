@@ -27,10 +27,10 @@ deep-preserve-regex:
   - /docs/index.rst
 
 deep-copy-regex:
-  - source: //google/devtools/artifactregistry/(.*)/.*-py/(.*)
+  - source: /google/devtools/artifactregistry/(.*)/.*-py/(.*)
     dest: /$2
   # Default version copied last.
-  - source: //google/devtools/artifactregistry/v1beta2/.*-py/(.*)
+  - source: /google/devtools/artifactregistry/v1beta2/.*-py/(.*)
     dest: /$2
 
 begin-after-commit-hash: 0e809e6f6db01ccdcc3f3861ccebec975b228509
