@@ -23,14 +23,14 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.devtools.artifactregistry.v1beta2",
+    package='google.devtools.artifactregistry.v1beta2',
     manifest={
-        "VersionView",
-        "Version",
-        "ListVersionsRequest",
-        "ListVersionsResponse",
-        "GetVersionRequest",
-        "DeleteVersionRequest",
+        'VersionView',
+        'Version',
+        'ListVersionsRequest',
+        'ListVersionsResponse',
+        'GetVersionRequest',
+        'DeleteVersionRequest',
     },
 )
 
@@ -71,11 +71,17 @@ class Version(proto.Message):
 
     description = proto.Field(proto.STRING, number=3)
 
-    create_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    create_time = proto.Field(proto.MESSAGE, number=5,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    update_time = proto.Field(proto.MESSAGE, number=6,
+        message=timestamp.Timestamp,
+    )
 
-    related_tags = proto.RepeatedField(proto.MESSAGE, number=7, message=tag.Tag,)
+    related_tags = proto.RepeatedField(proto.MESSAGE, number=7,
+        message=tag.Tag,
+    )
 
 
 class ListVersionsRequest(proto.Message):
@@ -102,7 +108,9 @@ class ListVersionsRequest(proto.Message):
 
     page_token = proto.Field(proto.STRING, number=3)
 
-    view = proto.Field(proto.ENUM, number=4, enum="VersionView",)
+    view = proto.Field(proto.ENUM, number=4,
+        enum='VersionView',
+    )
 
 
 class ListVersionsResponse(proto.Message):
@@ -121,7 +129,9 @@ class ListVersionsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    versions = proto.RepeatedField(proto.MESSAGE, number=1, message="Version",)
+    versions = proto.RepeatedField(proto.MESSAGE, number=1,
+        message='Version',
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -139,7 +149,9 @@ class GetVersionRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    view = proto.Field(proto.ENUM, number=2, enum="VersionView",)
+    view = proto.Field(proto.ENUM, number=2,
+        enum='VersionView',
+    )
 
 
 class DeleteVersionRequest(proto.Message):

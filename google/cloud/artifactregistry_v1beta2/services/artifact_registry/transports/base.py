@@ -21,7 +21,7 @@ import pkg_resources
 
 from google import auth  # type: ignore
 from google.api_core import exceptions  # type: ignore
-from google.api_core import gapic_v1  # type: ignore
+from google.api_core import gapic_v1    # type: ignore
 from google.api_core import retry as retries  # type: ignore
 from google.api_core import operations_v1  # type: ignore
 from google.auth import credentials  # type: ignore
@@ -42,32 +42,30 @@ from google.protobuf import empty_pb2 as empty  # type: ignore
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-artifact-registry",
+            'google-cloud-artifact-registry',
         ).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
 
-
 class ArtifactRegistryTransport(abc.ABC):
     """Abstract transport class for ArtifactRegistry."""
 
     AUTH_SCOPES = (
-        "https://www.googleapis.com/auth/cloud-platform",
-        "https://www.googleapis.com/auth/cloud-platform.read-only",
+        'https://www.googleapis.com/auth/cloud-platform',
+        'https://www.googleapis.com/auth/cloud-platform.read-only',
     )
 
     def __init__(
-        self,
-        *,
-        host: str = "artifactregistry.googleapis.com",
-        credentials: credentials.Credentials = None,
-        credentials_file: typing.Optional[str] = None,
-        scopes: typing.Optional[typing.Sequence[str]] = AUTH_SCOPES,
-        quota_project_id: typing.Optional[str] = None,
-        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-        **kwargs,
-    ) -> None:
+            self, *,
+            host: str = 'artifactregistry.googleapis.com',
+            credentials: credentials.Credentials = None,
+            credentials_file: typing.Optional[str] = None,
+            scopes: typing.Optional[typing.Sequence[str]] = AUTH_SCOPES,
+            quota_project_id: typing.Optional[str] = None,
+            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+            **kwargs,
+            ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -90,8 +88,8 @@ class ArtifactRegistryTransport(abc.ABC):
                 your own client library.
         """
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
-        if ":" not in host:
-            host += ":443"
+        if ':' not in host:
+            host += ':443'
         self._host = host
 
         # Save the scopes.
@@ -100,19 +98,17 @@ class ArtifactRegistryTransport(abc.ABC):
         # If no credentials are provided, then determine the appropriate
         # defaults.
         if credentials and credentials_file:
-            raise exceptions.DuplicateCredentialArgs(
-                "'credentials_file' and 'credentials' are mutually exclusive"
-            )
+            raise exceptions.DuplicateCredentialArgs("'credentials_file' and 'credentials' are mutually exclusive")
 
         if credentials_file is not None:
             credentials, _ = auth.load_credentials_from_file(
-                credentials_file, scopes=self._scopes, quota_project_id=quota_project_id
-            )
+                                credentials_file,
+                                scopes=self._scopes,
+                                quota_project_id=quota_project_id
+                            )
 
         elif credentials is None:
-            credentials, _ = auth.default(
-                scopes=self._scopes, quota_project_id=quota_project_id
-            )
+            credentials, _ = auth.default(scopes=self._scopes, quota_project_id=quota_project_id)
 
         # Save the credentials.
         self._credentials = credentials
@@ -126,7 +122,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -138,17 +136,23 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
                 client_info=client_info,
             ),
             self.create_repository: gapic_v1.method.wrap_method(
-                self.create_repository, default_timeout=30.0, client_info=client_info,
+                self.create_repository,
+                default_timeout=30.0,
+                client_info=client_info,
             ),
             self.update_repository: gapic_v1.method.wrap_method(
-                self.update_repository, default_timeout=30.0, client_info=client_info,
+                self.update_repository,
+                default_timeout=30.0,
+                client_info=client_info,
             ),
             self.delete_repository: gapic_v1.method.wrap_method(
                 self.delete_repository,
@@ -156,7 +160,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -168,7 +174,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -180,7 +188,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -192,7 +202,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -204,7 +216,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -216,7 +230,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -228,7 +244,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -240,7 +258,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -252,7 +272,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -264,7 +286,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -276,17 +300,23 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
                 client_info=client_info,
             ),
             self.create_tag: gapic_v1.method.wrap_method(
-                self.create_tag, default_timeout=30.0, client_info=client_info,
+                self.create_tag,
+                default_timeout=30.0,
+                client_info=client_info,
             ),
             self.update_tag: gapic_v1.method.wrap_method(
-                self.update_tag, default_timeout=30.0, client_info=client_info,
+                self.update_tag,
+                default_timeout=30.0,
+                client_info=client_info,
             ),
             self.delete_tag: gapic_v1.method.wrap_method(
                 self.delete_tag,
@@ -294,14 +324,18 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
                 client_info=client_info,
             ),
             self.set_iam_policy: gapic_v1.method.wrap_method(
-                self.set_iam_policy, default_timeout=None, client_info=client_info,
+                self.set_iam_policy,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.get_iam_policy: gapic_v1.method.wrap_method(
                 self.get_iam_policy,
@@ -309,7 +343,9 @@ class ArtifactRegistryTransport(abc.ABC):
                     initial=0.1,
                     maximum=60.0,
                     multiplier=1.3,
-                    predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                    predicate=retries.if_exception_type(
+                        exceptions.ServiceUnavailable,
+                    ),
                     deadline=30.0,
                 ),
                 default_timeout=30.0,
@@ -320,6 +356,7 @@ class ArtifactRegistryTransport(abc.ABC):
                 default_timeout=30.0,
                 client_info=client_info,
             ),
+
         }
 
     @property
@@ -328,202 +365,195 @@ class ArtifactRegistryTransport(abc.ABC):
         raise NotImplementedError()
 
     @property
-    def list_repositories(
-        self,
-    ) -> typing.Callable[
-        [repository.ListRepositoriesRequest],
-        typing.Union[
-            repository.ListRepositoriesResponse,
-            typing.Awaitable[repository.ListRepositoriesResponse],
-        ],
-    ]:
+    def list_repositories(self) -> typing.Callable[
+            [repository.ListRepositoriesRequest],
+            typing.Union[
+                repository.ListRepositoriesResponse,
+                typing.Awaitable[repository.ListRepositoriesResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_repository(
-        self,
-    ) -> typing.Callable[
-        [repository.GetRepositoryRequest],
-        typing.Union[repository.Repository, typing.Awaitable[repository.Repository]],
-    ]:
+    def get_repository(self) -> typing.Callable[
+            [repository.GetRepositoryRequest],
+            typing.Union[
+                repository.Repository,
+                typing.Awaitable[repository.Repository]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def create_repository(
-        self,
-    ) -> typing.Callable[
-        [gda_repository.CreateRepositoryRequest],
-        typing.Union[operations.Operation, typing.Awaitable[operations.Operation]],
-    ]:
+    def create_repository(self) -> typing.Callable[
+            [gda_repository.CreateRepositoryRequest],
+            typing.Union[
+                operations.Operation,
+                typing.Awaitable[operations.Operation]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def update_repository(
-        self,
-    ) -> typing.Callable[
-        [gda_repository.UpdateRepositoryRequest],
-        typing.Union[
-            gda_repository.Repository, typing.Awaitable[gda_repository.Repository]
-        ],
-    ]:
+    def update_repository(self) -> typing.Callable[
+            [gda_repository.UpdateRepositoryRequest],
+            typing.Union[
+                gda_repository.Repository,
+                typing.Awaitable[gda_repository.Repository]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def delete_repository(
-        self,
-    ) -> typing.Callable[
-        [repository.DeleteRepositoryRequest],
-        typing.Union[operations.Operation, typing.Awaitable[operations.Operation]],
-    ]:
+    def delete_repository(self) -> typing.Callable[
+            [repository.DeleteRepositoryRequest],
+            typing.Union[
+                operations.Operation,
+                typing.Awaitable[operations.Operation]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_packages(
-        self,
-    ) -> typing.Callable[
-        [package.ListPackagesRequest],
-        typing.Union[
-            package.ListPackagesResponse, typing.Awaitable[package.ListPackagesResponse]
-        ],
-    ]:
+    def list_packages(self) -> typing.Callable[
+            [package.ListPackagesRequest],
+            typing.Union[
+                package.ListPackagesResponse,
+                typing.Awaitable[package.ListPackagesResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_package(
-        self,
-    ) -> typing.Callable[
-        [package.GetPackageRequest],
-        typing.Union[package.Package, typing.Awaitable[package.Package]],
-    ]:
+    def get_package(self) -> typing.Callable[
+            [package.GetPackageRequest],
+            typing.Union[
+                package.Package,
+                typing.Awaitable[package.Package]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def delete_package(
-        self,
-    ) -> typing.Callable[
-        [package.DeletePackageRequest],
-        typing.Union[operations.Operation, typing.Awaitable[operations.Operation]],
-    ]:
+    def delete_package(self) -> typing.Callable[
+            [package.DeletePackageRequest],
+            typing.Union[
+                operations.Operation,
+                typing.Awaitable[operations.Operation]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_versions(
-        self,
-    ) -> typing.Callable[
-        [version.ListVersionsRequest],
-        typing.Union[
-            version.ListVersionsResponse, typing.Awaitable[version.ListVersionsResponse]
-        ],
-    ]:
+    def list_versions(self) -> typing.Callable[
+            [version.ListVersionsRequest],
+            typing.Union[
+                version.ListVersionsResponse,
+                typing.Awaitable[version.ListVersionsResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_version(
-        self,
-    ) -> typing.Callable[
-        [version.GetVersionRequest],
-        typing.Union[version.Version, typing.Awaitable[version.Version]],
-    ]:
+    def get_version(self) -> typing.Callable[
+            [version.GetVersionRequest],
+            typing.Union[
+                version.Version,
+                typing.Awaitable[version.Version]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def delete_version(
-        self,
-    ) -> typing.Callable[
-        [version.DeleteVersionRequest],
-        typing.Union[operations.Operation, typing.Awaitable[operations.Operation]],
-    ]:
+    def delete_version(self) -> typing.Callable[
+            [version.DeleteVersionRequest],
+            typing.Union[
+                operations.Operation,
+                typing.Awaitable[operations.Operation]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_files(
-        self,
-    ) -> typing.Callable[
-        [file.ListFilesRequest],
-        typing.Union[file.ListFilesResponse, typing.Awaitable[file.ListFilesResponse]],
-    ]:
+    def list_files(self) -> typing.Callable[
+            [file.ListFilesRequest],
+            typing.Union[
+                file.ListFilesResponse,
+                typing.Awaitable[file.ListFilesResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_file(
-        self,
-    ) -> typing.Callable[
-        [file.GetFileRequest], typing.Union[file.File, typing.Awaitable[file.File]]
-    ]:
+    def get_file(self) -> typing.Callable[
+            [file.GetFileRequest],
+            typing.Union[
+                file.File,
+                typing.Awaitable[file.File]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_tags(
-        self,
-    ) -> typing.Callable[
-        [tag.ListTagsRequest],
-        typing.Union[tag.ListTagsResponse, typing.Awaitable[tag.ListTagsResponse]],
-    ]:
+    def list_tags(self) -> typing.Callable[
+            [tag.ListTagsRequest],
+            typing.Union[
+                tag.ListTagsResponse,
+                typing.Awaitable[tag.ListTagsResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_tag(
-        self,
-    ) -> typing.Callable[
-        [tag.GetTagRequest], typing.Union[tag.Tag, typing.Awaitable[tag.Tag]]
-    ]:
+    def get_tag(self) -> typing.Callable[
+            [tag.GetTagRequest],
+            typing.Union[
+                tag.Tag,
+                typing.Awaitable[tag.Tag]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def create_tag(
-        self,
-    ) -> typing.Callable[
-        [gda_tag.CreateTagRequest],
-        typing.Union[gda_tag.Tag, typing.Awaitable[gda_tag.Tag]],
-    ]:
+    def create_tag(self) -> typing.Callable[
+            [gda_tag.CreateTagRequest],
+            typing.Union[
+                gda_tag.Tag,
+                typing.Awaitable[gda_tag.Tag]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def update_tag(
-        self,
-    ) -> typing.Callable[
-        [gda_tag.UpdateTagRequest],
-        typing.Union[gda_tag.Tag, typing.Awaitable[gda_tag.Tag]],
-    ]:
+    def update_tag(self) -> typing.Callable[
+            [gda_tag.UpdateTagRequest],
+            typing.Union[
+                gda_tag.Tag,
+                typing.Awaitable[gda_tag.Tag]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def delete_tag(
-        self,
-    ) -> typing.Callable[
-        [tag.DeleteTagRequest], typing.Union[empty.Empty, typing.Awaitable[empty.Empty]]
-    ]:
+    def delete_tag(self) -> typing.Callable[
+            [tag.DeleteTagRequest],
+            typing.Union[
+                empty.Empty,
+                typing.Awaitable[empty.Empty]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def set_iam_policy(
-        self,
-    ) -> typing.Callable[
-        [iam_policy.SetIamPolicyRequest],
-        typing.Union[policy.Policy, typing.Awaitable[policy.Policy]],
-    ]:
+    def set_iam_policy(self) -> typing.Callable[
+            [iam_policy.SetIamPolicyRequest],
+            typing.Union[
+                policy.Policy,
+                typing.Awaitable[policy.Policy]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_iam_policy(
-        self,
-    ) -> typing.Callable[
-        [iam_policy.GetIamPolicyRequest],
-        typing.Union[policy.Policy, typing.Awaitable[policy.Policy]],
-    ]:
+    def get_iam_policy(self) -> typing.Callable[
+            [iam_policy.GetIamPolicyRequest],
+            typing.Union[
+                policy.Policy,
+                typing.Awaitable[policy.Policy]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def test_iam_permissions(
-        self,
-    ) -> typing.Callable[
-        [iam_policy.TestIamPermissionsRequest],
-        typing.Union[
-            iam_policy.TestIamPermissionsResponse,
-            typing.Awaitable[iam_policy.TestIamPermissionsResponse],
-        ],
-    ]:
+    def test_iam_permissions(self) -> typing.Callable[
+            [iam_policy.TestIamPermissionsRequest],
+            typing.Union[
+                iam_policy.TestIamPermissionsResponse,
+                typing.Awaitable[iam_policy.TestIamPermissionsResponse]
+            ]]:
         raise NotImplementedError()
 
 
-__all__ = ("ArtifactRegistryTransport",)
+__all__ = (
+    'ArtifactRegistryTransport',
+)

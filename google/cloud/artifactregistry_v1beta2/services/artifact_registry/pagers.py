@@ -15,16 +15,7 @@
 # limitations under the License.
 #
 
-from typing import (
-    Any,
-    AsyncIterable,
-    Awaitable,
-    Callable,
-    Iterable,
-    Sequence,
-    Tuple,
-    Optional,
-)
+from typing import Any, AsyncIterable, Awaitable, Callable, Iterable, Sequence, Tuple, Optional
 
 from google.cloud.artifactregistry_v1beta2.types import file
 from google.cloud.artifactregistry_v1beta2.types import package
@@ -50,15 +41,12 @@ class ListRepositoriesPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., repository.ListRepositoriesResponse],
-        request: repository.ListRepositoriesRequest,
-        response: repository.ListRepositoriesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., repository.ListRepositoriesResponse],
+            request: repository.ListRepositoriesRequest,
+            response: repository.ListRepositoriesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -92,7 +80,7 @@ class ListRepositoriesPager:
             yield from page.repositories
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListRepositoriesAsyncPager:
@@ -112,15 +100,12 @@ class ListRepositoriesAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., Awaitable[repository.ListRepositoriesResponse]],
-        request: repository.ListRepositoriesRequest,
-        response: repository.ListRepositoriesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., Awaitable[repository.ListRepositoriesResponse]],
+            request: repository.ListRepositoriesRequest,
+            response: repository.ListRepositoriesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -158,7 +143,7 @@ class ListRepositoriesAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListPackagesPager:
@@ -178,15 +163,12 @@ class ListPackagesPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., package.ListPackagesResponse],
-        request: package.ListPackagesRequest,
-        response: package.ListPackagesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., package.ListPackagesResponse],
+            request: package.ListPackagesRequest,
+            response: package.ListPackagesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -220,7 +202,7 @@ class ListPackagesPager:
             yield from page.packages
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListPackagesAsyncPager:
@@ -240,15 +222,12 @@ class ListPackagesAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., Awaitable[package.ListPackagesResponse]],
-        request: package.ListPackagesRequest,
-        response: package.ListPackagesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., Awaitable[package.ListPackagesResponse]],
+            request: package.ListPackagesRequest,
+            response: package.ListPackagesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -286,7 +265,7 @@ class ListPackagesAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListVersionsPager:
@@ -306,15 +285,12 @@ class ListVersionsPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., version.ListVersionsResponse],
-        request: version.ListVersionsRequest,
-        response: version.ListVersionsResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., version.ListVersionsResponse],
+            request: version.ListVersionsRequest,
+            response: version.ListVersionsResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -348,7 +324,7 @@ class ListVersionsPager:
             yield from page.versions
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListVersionsAsyncPager:
@@ -368,15 +344,12 @@ class ListVersionsAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., Awaitable[version.ListVersionsResponse]],
-        request: version.ListVersionsRequest,
-        response: version.ListVersionsResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., Awaitable[version.ListVersionsResponse]],
+            request: version.ListVersionsRequest,
+            response: version.ListVersionsResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -414,7 +387,7 @@ class ListVersionsAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListFilesPager:
@@ -434,15 +407,12 @@ class ListFilesPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., file.ListFilesResponse],
-        request: file.ListFilesRequest,
-        response: file.ListFilesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., file.ListFilesResponse],
+            request: file.ListFilesRequest,
+            response: file.ListFilesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -476,7 +446,7 @@ class ListFilesPager:
             yield from page.files
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListFilesAsyncPager:
@@ -496,15 +466,12 @@ class ListFilesAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., Awaitable[file.ListFilesResponse]],
-        request: file.ListFilesRequest,
-        response: file.ListFilesResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., Awaitable[file.ListFilesResponse]],
+            request: file.ListFilesRequest,
+            response: file.ListFilesResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -542,7 +509,7 @@ class ListFilesAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListTagsPager:
@@ -562,15 +529,12 @@ class ListTagsPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., tag.ListTagsResponse],
-        request: tag.ListTagsRequest,
-        response: tag.ListTagsResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., tag.ListTagsResponse],
+            request: tag.ListTagsRequest,
+            response: tag.ListTagsResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -604,7 +568,7 @@ class ListTagsPager:
             yield from page.tags
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
 
 
 class ListTagsAsyncPager:
@@ -624,15 +588,12 @@ class ListTagsAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-
-    def __init__(
-        self,
-        method: Callable[..., Awaitable[tag.ListTagsResponse]],
-        request: tag.ListTagsRequest,
-        response: tag.ListTagsResponse,
-        *,
-        metadata: Sequence[Tuple[str, str]] = ()
-    ):
+    def __init__(self,
+            method: Callable[..., Awaitable[tag.ListTagsResponse]],
+            request: tag.ListTagsRequest,
+            response: tag.ListTagsResponse,
+            *,
+            metadata: Sequence[Tuple[str, str]] = ()):
         """Instantiate the pager.
 
         Args:
@@ -670,4 +631,4 @@ class ListTagsAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
+        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)

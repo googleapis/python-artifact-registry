@@ -18,14 +18,14 @@
 import warnings
 from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
 
-from google.api_core import gapic_v1  # type: ignore
-from google.api_core import grpc_helpers_async  # type: ignore
-from google.api_core import operations_v1  # type: ignore
-from google import auth  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.api_core import gapic_v1                   # type: ignore
+from google.api_core import grpc_helpers_async         # type: ignore
+from google.api_core import operations_v1              # type: ignore
+from google import auth                                # type: ignore
+from google.auth import credentials                    # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 
-import grpc  # type: ignore
+import grpc                        # type: ignore
 from grpc.experimental import aio  # type: ignore
 
 from google.cloud.artifactregistry_v1beta2.types import file
@@ -73,15 +73,13 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
     _stubs: Dict[str, Callable] = {}
 
     @classmethod
-    def create_channel(
-        cls,
-        host: str = "artifactregistry.googleapis.com",
-        credentials: credentials.Credentials = None,
-        credentials_file: Optional[str] = None,
-        scopes: Optional[Sequence[str]] = None,
-        quota_project_id: Optional[str] = None,
-        **kwargs,
-    ) -> aio.Channel:
+    def create_channel(cls,
+                       host: str = 'artifactregistry.googleapis.com',
+                       credentials: credentials.Credentials = None,
+                       credentials_file: Optional[str] = None,
+                       scopes: Optional[Sequence[str]] = None,
+                       quota_project_id: Optional[str] = None,
+                       **kwargs) -> aio.Channel:
         """Create and return a gRPC AsyncIO channel object.
         Args:
             host (Optional[str]): The host for the channel to use.
@@ -110,24 +108,22 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
             credentials_file=credentials_file,
             scopes=scopes,
             quota_project_id=quota_project_id,
-            **kwargs,
+            **kwargs
         )
 
-    def __init__(
-        self,
-        *,
-        host: str = "artifactregistry.googleapis.com",
-        credentials: credentials.Credentials = None,
-        credentials_file: Optional[str] = None,
-        scopes: Optional[Sequence[str]] = None,
-        channel: aio.Channel = None,
-        api_mtls_endpoint: str = None,
-        client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
-        ssl_channel_credentials: grpc.ChannelCredentials = None,
-        client_cert_source_for_mtls: Callable[[], Tuple[bytes, bytes]] = None,
-        quota_project_id=None,
-        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-    ) -> None:
+    def __init__(self, *,
+            host: str = 'artifactregistry.googleapis.com',
+            credentials: credentials.Credentials = None,
+            credentials_file: Optional[str] = None,
+            scopes: Optional[Sequence[str]] = None,
+            channel: aio.Channel = None,
+            api_mtls_endpoint: str = None,
+            client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
+            ssl_channel_credentials: grpc.ChannelCredentials = None,
+            client_cert_source_for_mtls: Callable[[], Tuple[bytes, bytes]] = None,
+            quota_project_id=None,
+            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+            ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -266,12 +262,9 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         return self._operations_client
 
     @property
-    def list_repositories(
-        self,
-    ) -> Callable[
-        [repository.ListRepositoriesRequest],
-        Awaitable[repository.ListRepositoriesResponse],
-    ]:
+    def list_repositories(self) -> Callable[
+            [repository.ListRepositoriesRequest],
+            Awaitable[repository.ListRepositoriesResponse]]:
         r"""Return a callable for the list repositories method over gRPC.
 
         Lists repositories.
@@ -286,18 +279,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_repositories" not in self._stubs:
-            self._stubs["list_repositories"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListRepositories",
+        if 'list_repositories' not in self._stubs:
+            self._stubs['list_repositories'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListRepositories',
                 request_serializer=repository.ListRepositoriesRequest.serialize,
                 response_deserializer=repository.ListRepositoriesResponse.deserialize,
             )
-        return self._stubs["list_repositories"]
+        return self._stubs['list_repositories']
 
     @property
-    def get_repository(
-        self,
-    ) -> Callable[[repository.GetRepositoryRequest], Awaitable[repository.Repository]]:
+    def get_repository(self) -> Callable[
+            [repository.GetRepositoryRequest],
+            Awaitable[repository.Repository]]:
         r"""Return a callable for the get repository method over gRPC.
 
         Gets a repository.
@@ -312,20 +305,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_repository" not in self._stubs:
-            self._stubs["get_repository"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetRepository",
+        if 'get_repository' not in self._stubs:
+            self._stubs['get_repository'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetRepository',
                 request_serializer=repository.GetRepositoryRequest.serialize,
                 response_deserializer=repository.Repository.deserialize,
             )
-        return self._stubs["get_repository"]
+        return self._stubs['get_repository']
 
     @property
-    def create_repository(
-        self,
-    ) -> Callable[
-        [gda_repository.CreateRepositoryRequest], Awaitable[operations.Operation]
-    ]:
+    def create_repository(self) -> Callable[
+            [gda_repository.CreateRepositoryRequest],
+            Awaitable[operations.Operation]]:
         r"""Return a callable for the create repository method over gRPC.
 
         Creates a repository. The returned Operation will
@@ -342,20 +333,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "create_repository" not in self._stubs:
-            self._stubs["create_repository"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateRepository",
+        if 'create_repository' not in self._stubs:
+            self._stubs['create_repository'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateRepository',
                 request_serializer=gda_repository.CreateRepositoryRequest.serialize,
                 response_deserializer=operations.Operation.FromString,
             )
-        return self._stubs["create_repository"]
+        return self._stubs['create_repository']
 
     @property
-    def update_repository(
-        self,
-    ) -> Callable[
-        [gda_repository.UpdateRepositoryRequest], Awaitable[gda_repository.Repository]
-    ]:
+    def update_repository(self) -> Callable[
+            [gda_repository.UpdateRepositoryRequest],
+            Awaitable[gda_repository.Repository]]:
         r"""Return a callable for the update repository method over gRPC.
 
         Updates a repository.
@@ -370,20 +359,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "update_repository" not in self._stubs:
-            self._stubs["update_repository"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateRepository",
+        if 'update_repository' not in self._stubs:
+            self._stubs['update_repository'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateRepository',
                 request_serializer=gda_repository.UpdateRepositoryRequest.serialize,
                 response_deserializer=gda_repository.Repository.deserialize,
             )
-        return self._stubs["update_repository"]
+        return self._stubs['update_repository']
 
     @property
-    def delete_repository(
-        self,
-    ) -> Callable[
-        [repository.DeleteRepositoryRequest], Awaitable[operations.Operation]
-    ]:
+    def delete_repository(self) -> Callable[
+            [repository.DeleteRepositoryRequest],
+            Awaitable[operations.Operation]]:
         r"""Return a callable for the delete repository method over gRPC.
 
         Deletes a repository and all of its contents. The
@@ -401,20 +388,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "delete_repository" not in self._stubs:
-            self._stubs["delete_repository"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteRepository",
+        if 'delete_repository' not in self._stubs:
+            self._stubs['delete_repository'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteRepository',
                 request_serializer=repository.DeleteRepositoryRequest.serialize,
                 response_deserializer=operations.Operation.FromString,
             )
-        return self._stubs["delete_repository"]
+        return self._stubs['delete_repository']
 
     @property
-    def list_packages(
-        self,
-    ) -> Callable[
-        [package.ListPackagesRequest], Awaitable[package.ListPackagesResponse]
-    ]:
+    def list_packages(self) -> Callable[
+            [package.ListPackagesRequest],
+            Awaitable[package.ListPackagesResponse]]:
         r"""Return a callable for the list packages method over gRPC.
 
         Lists packages.
@@ -429,18 +414,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_packages" not in self._stubs:
-            self._stubs["list_packages"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListPackages",
+        if 'list_packages' not in self._stubs:
+            self._stubs['list_packages'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListPackages',
                 request_serializer=package.ListPackagesRequest.serialize,
                 response_deserializer=package.ListPackagesResponse.deserialize,
             )
-        return self._stubs["list_packages"]
+        return self._stubs['list_packages']
 
     @property
-    def get_package(
-        self,
-    ) -> Callable[[package.GetPackageRequest], Awaitable[package.Package]]:
+    def get_package(self) -> Callable[
+            [package.GetPackageRequest],
+            Awaitable[package.Package]]:
         r"""Return a callable for the get package method over gRPC.
 
         Gets a package.
@@ -455,18 +440,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_package" not in self._stubs:
-            self._stubs["get_package"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetPackage",
+        if 'get_package' not in self._stubs:
+            self._stubs['get_package'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetPackage',
                 request_serializer=package.GetPackageRequest.serialize,
                 response_deserializer=package.Package.deserialize,
             )
-        return self._stubs["get_package"]
+        return self._stubs['get_package']
 
     @property
-    def delete_package(
-        self,
-    ) -> Callable[[package.DeletePackageRequest], Awaitable[operations.Operation]]:
+    def delete_package(self) -> Callable[
+            [package.DeletePackageRequest],
+            Awaitable[operations.Operation]]:
         r"""Return a callable for the delete package method over gRPC.
 
         Deletes a package and all of its versions and tags.
@@ -483,20 +468,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "delete_package" not in self._stubs:
-            self._stubs["delete_package"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeletePackage",
+        if 'delete_package' not in self._stubs:
+            self._stubs['delete_package'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeletePackage',
                 request_serializer=package.DeletePackageRequest.serialize,
                 response_deserializer=operations.Operation.FromString,
             )
-        return self._stubs["delete_package"]
+        return self._stubs['delete_package']
 
     @property
-    def list_versions(
-        self,
-    ) -> Callable[
-        [version.ListVersionsRequest], Awaitable[version.ListVersionsResponse]
-    ]:
+    def list_versions(self) -> Callable[
+            [version.ListVersionsRequest],
+            Awaitable[version.ListVersionsResponse]]:
         r"""Return a callable for the list versions method over gRPC.
 
         Lists versions.
@@ -511,18 +494,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_versions" not in self._stubs:
-            self._stubs["list_versions"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListVersions",
+        if 'list_versions' not in self._stubs:
+            self._stubs['list_versions'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListVersions',
                 request_serializer=version.ListVersionsRequest.serialize,
                 response_deserializer=version.ListVersionsResponse.deserialize,
             )
-        return self._stubs["list_versions"]
+        return self._stubs['list_versions']
 
     @property
-    def get_version(
-        self,
-    ) -> Callable[[version.GetVersionRequest], Awaitable[version.Version]]:
+    def get_version(self) -> Callable[
+            [version.GetVersionRequest],
+            Awaitable[version.Version]]:
         r"""Return a callable for the get version method over gRPC.
 
         Gets a version
@@ -537,18 +520,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_version" not in self._stubs:
-            self._stubs["get_version"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetVersion",
+        if 'get_version' not in self._stubs:
+            self._stubs['get_version'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetVersion',
                 request_serializer=version.GetVersionRequest.serialize,
                 response_deserializer=version.Version.deserialize,
             )
-        return self._stubs["get_version"]
+        return self._stubs['get_version']
 
     @property
-    def delete_version(
-        self,
-    ) -> Callable[[version.DeleteVersionRequest], Awaitable[operations.Operation]]:
+    def delete_version(self) -> Callable[
+            [version.DeleteVersionRequest],
+            Awaitable[operations.Operation]]:
         r"""Return a callable for the delete version method over gRPC.
 
         Deletes a version and all of its content. The
@@ -565,18 +548,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "delete_version" not in self._stubs:
-            self._stubs["delete_version"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteVersion",
+        if 'delete_version' not in self._stubs:
+            self._stubs['delete_version'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteVersion',
                 request_serializer=version.DeleteVersionRequest.serialize,
                 response_deserializer=operations.Operation.FromString,
             )
-        return self._stubs["delete_version"]
+        return self._stubs['delete_version']
 
     @property
-    def list_files(
-        self,
-    ) -> Callable[[file.ListFilesRequest], Awaitable[file.ListFilesResponse]]:
+    def list_files(self) -> Callable[
+            [file.ListFilesRequest],
+            Awaitable[file.ListFilesResponse]]:
         r"""Return a callable for the list files method over gRPC.
 
         Lists files.
@@ -591,16 +574,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_files" not in self._stubs:
-            self._stubs["list_files"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListFiles",
+        if 'list_files' not in self._stubs:
+            self._stubs['list_files'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListFiles',
                 request_serializer=file.ListFilesRequest.serialize,
                 response_deserializer=file.ListFilesResponse.deserialize,
             )
-        return self._stubs["list_files"]
+        return self._stubs['list_files']
 
     @property
-    def get_file(self) -> Callable[[file.GetFileRequest], Awaitable[file.File]]:
+    def get_file(self) -> Callable[
+            [file.GetFileRequest],
+            Awaitable[file.File]]:
         r"""Return a callable for the get file method over gRPC.
 
         Gets a file.
@@ -615,18 +600,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_file" not in self._stubs:
-            self._stubs["get_file"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetFile",
+        if 'get_file' not in self._stubs:
+            self._stubs['get_file'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetFile',
                 request_serializer=file.GetFileRequest.serialize,
                 response_deserializer=file.File.deserialize,
             )
-        return self._stubs["get_file"]
+        return self._stubs['get_file']
 
     @property
-    def list_tags(
-        self,
-    ) -> Callable[[tag.ListTagsRequest], Awaitable[tag.ListTagsResponse]]:
+    def list_tags(self) -> Callable[
+            [tag.ListTagsRequest],
+            Awaitable[tag.ListTagsResponse]]:
         r"""Return a callable for the list tags method over gRPC.
 
         Lists tags.
@@ -641,16 +626,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "list_tags" not in self._stubs:
-            self._stubs["list_tags"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListTags",
+        if 'list_tags' not in self._stubs:
+            self._stubs['list_tags'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListTags',
                 request_serializer=tag.ListTagsRequest.serialize,
                 response_deserializer=tag.ListTagsResponse.deserialize,
             )
-        return self._stubs["list_tags"]
+        return self._stubs['list_tags']
 
     @property
-    def get_tag(self) -> Callable[[tag.GetTagRequest], Awaitable[tag.Tag]]:
+    def get_tag(self) -> Callable[
+            [tag.GetTagRequest],
+            Awaitable[tag.Tag]]:
         r"""Return a callable for the get tag method over gRPC.
 
         Gets a tag.
@@ -665,18 +652,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_tag" not in self._stubs:
-            self._stubs["get_tag"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetTag",
+        if 'get_tag' not in self._stubs:
+            self._stubs['get_tag'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetTag',
                 request_serializer=tag.GetTagRequest.serialize,
                 response_deserializer=tag.Tag.deserialize,
             )
-        return self._stubs["get_tag"]
+        return self._stubs['get_tag']
 
     @property
-    def create_tag(
-        self,
-    ) -> Callable[[gda_tag.CreateTagRequest], Awaitable[gda_tag.Tag]]:
+    def create_tag(self) -> Callable[
+            [gda_tag.CreateTagRequest],
+            Awaitable[gda_tag.Tag]]:
         r"""Return a callable for the create tag method over gRPC.
 
         Creates a tag.
@@ -691,18 +678,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "create_tag" not in self._stubs:
-            self._stubs["create_tag"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateTag",
+        if 'create_tag' not in self._stubs:
+            self._stubs['create_tag'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateTag',
                 request_serializer=gda_tag.CreateTagRequest.serialize,
                 response_deserializer=gda_tag.Tag.deserialize,
             )
-        return self._stubs["create_tag"]
+        return self._stubs['create_tag']
 
     @property
-    def update_tag(
-        self,
-    ) -> Callable[[gda_tag.UpdateTagRequest], Awaitable[gda_tag.Tag]]:
+    def update_tag(self) -> Callable[
+            [gda_tag.UpdateTagRequest],
+            Awaitable[gda_tag.Tag]]:
         r"""Return a callable for the update tag method over gRPC.
 
         Updates a tag.
@@ -717,16 +704,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "update_tag" not in self._stubs:
-            self._stubs["update_tag"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateTag",
+        if 'update_tag' not in self._stubs:
+            self._stubs['update_tag'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateTag',
                 request_serializer=gda_tag.UpdateTagRequest.serialize,
                 response_deserializer=gda_tag.Tag.deserialize,
             )
-        return self._stubs["update_tag"]
+        return self._stubs['update_tag']
 
     @property
-    def delete_tag(self) -> Callable[[tag.DeleteTagRequest], Awaitable[empty.Empty]]:
+    def delete_tag(self) -> Callable[
+            [tag.DeleteTagRequest],
+            Awaitable[empty.Empty]]:
         r"""Return a callable for the delete tag method over gRPC.
 
         Deletes a tag.
@@ -741,18 +730,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "delete_tag" not in self._stubs:
-            self._stubs["delete_tag"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteTag",
+        if 'delete_tag' not in self._stubs:
+            self._stubs['delete_tag'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteTag',
                 request_serializer=tag.DeleteTagRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
-        return self._stubs["delete_tag"]
+        return self._stubs['delete_tag']
 
     @property
-    def set_iam_policy(
-        self,
-    ) -> Callable[[iam_policy.SetIamPolicyRequest], Awaitable[policy.Policy]]:
+    def set_iam_policy(self) -> Callable[
+            [iam_policy.SetIamPolicyRequest],
+            Awaitable[policy.Policy]]:
         r"""Return a callable for the set iam policy method over gRPC.
 
         Updates the IAM policy for a given resource.
@@ -767,18 +756,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "set_iam_policy" not in self._stubs:
-            self._stubs["set_iam_policy"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/SetIamPolicy",
+        if 'set_iam_policy' not in self._stubs:
+            self._stubs['set_iam_policy'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/SetIamPolicy',
                 request_serializer=iam_policy.SetIamPolicyRequest.SerializeToString,
                 response_deserializer=policy.Policy.FromString,
             )
-        return self._stubs["set_iam_policy"]
+        return self._stubs['set_iam_policy']
 
     @property
-    def get_iam_policy(
-        self,
-    ) -> Callable[[iam_policy.GetIamPolicyRequest], Awaitable[policy.Policy]]:
+    def get_iam_policy(self) -> Callable[
+            [iam_policy.GetIamPolicyRequest],
+            Awaitable[policy.Policy]]:
         r"""Return a callable for the get iam policy method over gRPC.
 
         Gets the IAM policy for a given resource.
@@ -793,21 +782,18 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "get_iam_policy" not in self._stubs:
-            self._stubs["get_iam_policy"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetIamPolicy",
+        if 'get_iam_policy' not in self._stubs:
+            self._stubs['get_iam_policy'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetIamPolicy',
                 request_serializer=iam_policy.GetIamPolicyRequest.SerializeToString,
                 response_deserializer=policy.Policy.FromString,
             )
-        return self._stubs["get_iam_policy"]
+        return self._stubs['get_iam_policy']
 
     @property
-    def test_iam_permissions(
-        self,
-    ) -> Callable[
-        [iam_policy.TestIamPermissionsRequest],
-        Awaitable[iam_policy.TestIamPermissionsResponse],
-    ]:
+    def test_iam_permissions(self) -> Callable[
+            [iam_policy.TestIamPermissionsRequest],
+            Awaitable[iam_policy.TestIamPermissionsResponse]]:
         r"""Return a callable for the test iam permissions method over gRPC.
 
         Tests if the caller has a list of permissions on a
@@ -823,13 +809,15 @@ class ArtifactRegistryGrpcAsyncIOTransport(ArtifactRegistryTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if "test_iam_permissions" not in self._stubs:
-            self._stubs["test_iam_permissions"] = self.grpc_channel.unary_unary(
-                "/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/TestIamPermissions",
+        if 'test_iam_permissions' not in self._stubs:
+            self._stubs['test_iam_permissions'] = self.grpc_channel.unary_unary(
+                '/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/TestIamPermissions',
                 request_serializer=iam_policy.TestIamPermissionsRequest.SerializeToString,
                 response_deserializer=iam_policy.TestIamPermissionsResponse.FromString,
             )
-        return self._stubs["test_iam_permissions"]
+        return self._stubs['test_iam_permissions']
 
 
-__all__ = ("ArtifactRegistryGrpcAsyncIOTransport",)
+__all__ = (
+    'ArtifactRegistryGrpcAsyncIOTransport',
+)

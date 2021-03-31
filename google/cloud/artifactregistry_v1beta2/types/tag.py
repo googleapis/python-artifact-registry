@@ -22,15 +22,15 @@ from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.devtools.artifactregistry.v1beta2",
+    package='google.devtools.artifactregistry.v1beta2',
     manifest={
-        "Tag",
-        "ListTagsRequest",
-        "ListTagsResponse",
-        "GetTagRequest",
-        "CreateTagRequest",
-        "UpdateTagRequest",
-        "DeleteTagRequest",
+        'Tag',
+        'ListTagsRequest',
+        'ListTagsResponse',
+        'GetTagRequest',
+        'CreateTagRequest',
+        'UpdateTagRequest',
+        'DeleteTagRequest',
     },
 )
 
@@ -106,7 +106,9 @@ class ListTagsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    tags = proto.RepeatedField(proto.MESSAGE, number=1, message="Tag",)
+    tags = proto.RepeatedField(proto.MESSAGE, number=1,
+        message='Tag',
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -139,7 +141,9 @@ class CreateTagRequest(proto.Message):
 
     tag_id = proto.Field(proto.STRING, number=2)
 
-    tag = proto.Field(proto.MESSAGE, number=3, message="Tag",)
+    tag = proto.Field(proto.MESSAGE, number=3,
+        message='Tag',
+    )
 
 
 class UpdateTagRequest(proto.Message):
@@ -155,9 +159,13 @@ class UpdateTagRequest(proto.Message):
             https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
     """
 
-    tag = proto.Field(proto.MESSAGE, number=1, message="Tag",)
+    tag = proto.Field(proto.MESSAGE, number=1,
+        message='Tag',
+    )
 
-    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
+    update_mask = proto.Field(proto.MESSAGE, number=2,
+        message=field_mask.FieldMask,
+    )
 
 
 class DeleteTagRequest(proto.Message):

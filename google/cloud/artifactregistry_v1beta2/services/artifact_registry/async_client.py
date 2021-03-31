@@ -21,12 +21,12 @@ import re
 from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
-import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
-from google.api_core import gapic_v1  # type: ignore
-from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
-from google.oauth2 import service_account  # type: ignore
+import google.api_core.client_options as ClientOptions # type: ignore
+from google.api_core import exceptions                 # type: ignore
+from google.api_core import gapic_v1                   # type: ignore
+from google.api_core import retry as retries           # type: ignore
+from google.auth import credentials                    # type: ignore
+from google.oauth2 import service_account              # type: ignore
 
 from google.api_core import operation  # type: ignore
 from google.api_core import operation_async  # type: ignore
@@ -76,34 +76,20 @@ class ArtifactRegistryAsyncClient:
     repository_path = staticmethod(ArtifactRegistryClient.repository_path)
     parse_repository_path = staticmethod(ArtifactRegistryClient.parse_repository_path)
 
-    common_billing_account_path = staticmethod(
-        ArtifactRegistryClient.common_billing_account_path
-    )
-    parse_common_billing_account_path = staticmethod(
-        ArtifactRegistryClient.parse_common_billing_account_path
-    )
+    common_billing_account_path = staticmethod(ArtifactRegistryClient.common_billing_account_path)
+    parse_common_billing_account_path = staticmethod(ArtifactRegistryClient.parse_common_billing_account_path)
 
     common_folder_path = staticmethod(ArtifactRegistryClient.common_folder_path)
-    parse_common_folder_path = staticmethod(
-        ArtifactRegistryClient.parse_common_folder_path
-    )
+    parse_common_folder_path = staticmethod(ArtifactRegistryClient.parse_common_folder_path)
 
-    common_organization_path = staticmethod(
-        ArtifactRegistryClient.common_organization_path
-    )
-    parse_common_organization_path = staticmethod(
-        ArtifactRegistryClient.parse_common_organization_path
-    )
+    common_organization_path = staticmethod(ArtifactRegistryClient.common_organization_path)
+    parse_common_organization_path = staticmethod(ArtifactRegistryClient.parse_common_organization_path)
 
     common_project_path = staticmethod(ArtifactRegistryClient.common_project_path)
-    parse_common_project_path = staticmethod(
-        ArtifactRegistryClient.parse_common_project_path
-    )
+    parse_common_project_path = staticmethod(ArtifactRegistryClient.parse_common_project_path)
 
     common_location_path = staticmethod(ArtifactRegistryClient.common_location_path)
-    parse_common_location_path = staticmethod(
-        ArtifactRegistryClient.parse_common_location_path
-    )
+    parse_common_location_path = staticmethod(ArtifactRegistryClient.parse_common_location_path)
 
     @classmethod
     def from_service_account_info(cls, info: dict, *args, **kwargs):
@@ -146,18 +132,14 @@ class ArtifactRegistryAsyncClient:
         """
         return self._client.transport
 
-    get_transport_class = functools.partial(
-        type(ArtifactRegistryClient).get_transport_class, type(ArtifactRegistryClient)
-    )
+    get_transport_class = functools.partial(type(ArtifactRegistryClient).get_transport_class, type(ArtifactRegistryClient))
 
-    def __init__(
-        self,
-        *,
-        credentials: credentials.Credentials = None,
-        transport: Union[str, ArtifactRegistryTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
-        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-    ) -> None:
+    def __init__(self, *,
+            credentials: credentials.Credentials = None,
+            transport: Union[str, ArtifactRegistryTransport] = 'grpc_asyncio',
+            client_options: ClientOptions = None,
+            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+            ) -> None:
         """Instantiate the artifact registry client.
 
         Args:
@@ -196,17 +178,17 @@ class ArtifactRegistryAsyncClient:
             transport=transport,
             client_options=client_options,
             client_info=client_info,
+
         )
 
-    async def list_repositories(
-        self,
-        request: repository.ListRepositoriesRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListRepositoriesAsyncPager:
+    async def list_repositories(self,
+            request: repository.ListRepositoriesRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListRepositoriesAsyncPager:
         r"""Lists repositories.
 
         Args:
@@ -240,10 +222,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = repository.ListRepositoriesRequest(request)
 
@@ -261,7 +241,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -271,30 +253,39 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListRepositoriesAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def get_repository(
-        self,
-        request: repository.GetRepositoryRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> repository.Repository:
+    async def get_repository(self,
+            request: repository.GetRepositoryRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> repository.Repository:
         r"""Gets a repository.
 
         Args:
@@ -326,10 +317,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = repository.GetRepositoryRequest(request)
 
@@ -347,7 +336,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -357,26 +348,32 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def create_repository(
-        self,
-        request: gda_repository.CreateRepositoryRequest = None,
-        *,
-        parent: str = None,
-        repository: gda_repository.Repository = None,
-        repository_id: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation_async.AsyncOperation:
+    async def create_repository(self,
+            request: gda_repository.CreateRepositoryRequest = None,
+            *,
+            parent: str = None,
+            repository: gda_repository.Repository = None,
+            repository_id: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> operation_async.AsyncOperation:
         r"""Creates a repository. The returned Operation will
         finish once the repository has been created. Its
         response will be the created Repository.
@@ -426,10 +423,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent, repository, repository_id])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = gda_repository.CreateRepositoryRequest(request)
 
@@ -454,11 +449,18 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Wrap the response in an operation future.
         response = operation_async.from_gapic(
@@ -471,16 +473,15 @@ class ArtifactRegistryAsyncClient:
         # Done; return the response.
         return response
 
-    async def update_repository(
-        self,
-        request: gda_repository.UpdateRepositoryRequest = None,
-        *,
-        repository: gda_repository.Repository = None,
-        update_mask: field_mask.FieldMask = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> gda_repository.Repository:
+    async def update_repository(self,
+            request: gda_repository.UpdateRepositoryRequest = None,
+            *,
+            repository: gda_repository.Repository = None,
+            update_mask: field_mask.FieldMask = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> gda_repository.Repository:
         r"""Updates a repository.
 
         Args:
@@ -519,10 +520,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([repository, update_mask])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = gda_repository.UpdateRepositoryRequest(request)
 
@@ -545,26 +544,30 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata(
-                (("repository.name", request.repository.name),)
-            ),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('repository.name', request.repository.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def delete_repository(
-        self,
-        request: repository.DeleteRepositoryRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation_async.AsyncOperation:
+    async def delete_repository(self,
+            request: repository.DeleteRepositoryRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> operation_async.AsyncOperation:
         r"""Deletes a repository and all of its contents. The
         returned Operation will finish once the repository has
         been deleted. It will not have any Operation metadata
@@ -609,10 +612,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = repository.DeleteRepositoryRequest(request)
 
@@ -630,7 +631,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -640,11 +643,18 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Wrap the response in an operation future.
         response = operation_async.from_gapic(
@@ -657,15 +667,14 @@ class ArtifactRegistryAsyncClient:
         # Done; return the response.
         return response
 
-    async def list_packages(
-        self,
-        request: package.ListPackagesRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListPackagesAsyncPager:
+    async def list_packages(self,
+            request: package.ListPackagesRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListPackagesAsyncPager:
         r"""Lists packages.
 
         Args:
@@ -698,10 +707,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = package.ListPackagesRequest(request)
 
@@ -719,7 +726,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -729,30 +738,39 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPackagesAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def get_package(
-        self,
-        request: package.GetPackageRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> package.Package:
+    async def get_package(self,
+            request: package.GetPackageRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> package.Package:
         r"""Gets a package.
 
         Args:
@@ -781,10 +799,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = package.GetPackageRequest(request)
 
@@ -802,7 +818,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -812,24 +830,30 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def delete_package(
-        self,
-        request: package.DeletePackageRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation_async.AsyncOperation:
+    async def delete_package(self,
+            request: package.DeletePackageRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> operation_async.AsyncOperation:
         r"""Deletes a package and all of its versions and tags.
         The returned operation will complete once the package
         has been deleted.
@@ -873,10 +897,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = package.DeletePackageRequest(request)
 
@@ -894,7 +916,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -904,11 +928,18 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Wrap the response in an operation future.
         response = operation_async.from_gapic(
@@ -921,15 +952,14 @@ class ArtifactRegistryAsyncClient:
         # Done; return the response.
         return response
 
-    async def list_versions(
-        self,
-        request: version.ListVersionsRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListVersionsAsyncPager:
+    async def list_versions(self,
+            request: version.ListVersionsRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListVersionsAsyncPager:
         r"""Lists versions.
 
         Args:
@@ -962,10 +992,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = version.ListVersionsRequest(request)
 
@@ -983,7 +1011,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -993,30 +1023,39 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListVersionsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def get_version(
-        self,
-        request: version.GetVersionRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> version.Version:
+    async def get_version(self,
+            request: version.GetVersionRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> version.Version:
         r"""Gets a version
 
         Args:
@@ -1048,10 +1087,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = version.GetVersionRequest(request)
 
@@ -1069,7 +1106,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1079,24 +1118,30 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def delete_version(
-        self,
-        request: version.DeleteVersionRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> operation_async.AsyncOperation:
+    async def delete_version(self,
+            request: version.DeleteVersionRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> operation_async.AsyncOperation:
         r"""Deletes a version and all of its content. The
         returned operation will complete once the version has
         been deleted.
@@ -1140,10 +1185,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = version.DeleteVersionRequest(request)
 
@@ -1161,7 +1204,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1171,11 +1216,18 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Wrap the response in an operation future.
         response = operation_async.from_gapic(
@@ -1188,15 +1240,14 @@ class ArtifactRegistryAsyncClient:
         # Done; return the response.
         return response
 
-    async def list_files(
-        self,
-        request: file.ListFilesRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListFilesAsyncPager:
+    async def list_files(self,
+            request: file.ListFilesRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListFilesAsyncPager:
         r"""Lists files.
 
         Args:
@@ -1229,10 +1280,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = file.ListFilesRequest(request)
 
@@ -1250,7 +1299,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1260,30 +1311,39 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListFilesAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def get_file(
-        self,
-        request: file.GetFileRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> file.File:
+    async def get_file(self,
+            request: file.GetFileRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> file.File:
         r"""Gets a file.
 
         Args:
@@ -1313,10 +1373,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = file.GetFileRequest(request)
 
@@ -1334,7 +1392,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1344,24 +1404,30 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def list_tags(
-        self,
-        request: tag.ListTagsRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListTagsAsyncPager:
+    async def list_tags(self,
+            request: tag.ListTagsRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListTagsAsyncPager:
         r"""Lists tags.
 
         Args:
@@ -1394,10 +1460,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = tag.ListTagsRequest(request)
 
@@ -1415,7 +1479,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1425,30 +1491,39 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListTagsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def get_tag(
-        self,
-        request: tag.GetTagRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> tag.Tag:
+    async def get_tag(self,
+            request: tag.GetTagRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> tag.Tag:
         r"""Gets a tag.
 
         Args:
@@ -1478,10 +1553,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = tag.GetTagRequest(request)
 
@@ -1499,7 +1572,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1509,26 +1584,32 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def create_tag(
-        self,
-        request: gda_tag.CreateTagRequest = None,
-        *,
-        parent: str = None,
-        tag: gda_tag.Tag = None,
-        tag_id: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> gda_tag.Tag:
+    async def create_tag(self,
+            request: gda_tag.CreateTagRequest = None,
+            *,
+            parent: str = None,
+            tag: gda_tag.Tag = None,
+            tag_id: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> gda_tag.Tag:
         r"""Creates a tag.
 
         Args:
@@ -1572,10 +1653,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent, tag, tag_id])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = gda_tag.CreateTagRequest(request)
 
@@ -1600,25 +1679,31 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def update_tag(
-        self,
-        request: gda_tag.UpdateTagRequest = None,
-        *,
-        tag: gda_tag.Tag = None,
-        update_mask: field_mask.FieldMask = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> gda_tag.Tag:
+    async def update_tag(self,
+            request: gda_tag.UpdateTagRequest = None,
+            *,
+            tag: gda_tag.Tag = None,
+            update_mask: field_mask.FieldMask = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> gda_tag.Tag:
         r"""Updates a tag.
 
         Args:
@@ -1659,10 +1744,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([tag, update_mask])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = gda_tag.UpdateTagRequest(request)
 
@@ -1685,24 +1768,30 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("tag.name", request.tag.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('tag.name', request.tag.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def delete_tag(
-        self,
-        request: tag.DeleteTagRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> None:
+    async def delete_tag(self,
+            request: tag.DeleteTagRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> None:
         r"""Deletes a tag.
 
         Args:
@@ -1725,10 +1814,8 @@ class ArtifactRegistryAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = tag.DeleteTagRequest(request)
 
@@ -1746,7 +1833,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1756,22 +1845,26 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
         await rpc(
-            request, retry=retry, timeout=timeout, metadata=metadata,
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
         )
 
-    async def set_iam_policy(
-        self,
-        request: iam_policy.SetIamPolicyRequest = None,
-        *,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    async def set_iam_policy(self,
+            request: iam_policy.SetIamPolicyRequest = None,
+            *,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> policy.Policy:
         r"""Updates the IAM policy for a given resource.
 
         Args:
@@ -1862,23 +1955,29 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("resource", request.resource),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('resource', request.resource),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def get_iam_policy(
-        self,
-        request: iam_policy.GetIamPolicyRequest = None,
-        *,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    async def get_iam_policy(self,
+            request: iam_policy.GetIamPolicyRequest = None,
+            *,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> policy.Policy:
         r"""Gets the IAM policy for a given resource.
 
         Args:
@@ -1966,7 +2065,9 @@ class ArtifactRegistryAsyncClient:
                 initial=0.1,
                 maximum=60.0,
                 multiplier=1.3,
-                predicate=retries.if_exception_type(exceptions.ServiceUnavailable,),
+                predicate=retries.if_exception_type(
+                    exceptions.ServiceUnavailable,
+                ),
                 deadline=30.0,
             ),
             default_timeout=30.0,
@@ -1976,23 +2077,29 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("resource", request.resource),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('resource', request.resource),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def test_iam_permissions(
-        self,
-        request: iam_policy.TestIamPermissionsRequest = None,
-        *,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> iam_policy.TestIamPermissionsResponse:
+    async def test_iam_permissions(self,
+            request: iam_policy.TestIamPermissionsRequest = None,
+            *,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> iam_policy.TestIamPermissionsResponse:
         r"""Tests if the caller has a list of permissions on a
         resource.
 
@@ -2029,24 +2136,38 @@ class ArtifactRegistryAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("resource", request.resource),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('resource', request.resource),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
 
+
+
+
+
+
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-artifact-registry",
+            'google-cloud-artifact-registry',
         ).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
 
 
-__all__ = ("ArtifactRegistryAsyncClient",)
+__all__ = (
+    'ArtifactRegistryAsyncClient',
+)

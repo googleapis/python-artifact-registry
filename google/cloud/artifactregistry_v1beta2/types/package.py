@@ -22,13 +22,13 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.devtools.artifactregistry.v1beta2",
+    package='google.devtools.artifactregistry.v1beta2',
     manifest={
-        "Package",
-        "ListPackagesRequest",
-        "ListPackagesResponse",
-        "GetPackageRequest",
-        "DeletePackageRequest",
+        'Package',
+        'ListPackagesRequest',
+        'ListPackagesResponse',
+        'GetPackageRequest',
+        'DeletePackageRequest',
     },
 )
 
@@ -55,9 +55,13 @@ class Package(proto.Message):
 
     display_name = proto.Field(proto.STRING, number=2)
 
-    create_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    create_time = proto.Field(proto.MESSAGE, number=5,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    update_time = proto.Field(proto.MESSAGE, number=6,
+        message=timestamp.Timestamp,
+    )
 
 
 class ListPackagesRequest(proto.Message):
@@ -98,7 +102,9 @@ class ListPackagesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    packages = proto.RepeatedField(proto.MESSAGE, number=1, message="Package",)
+    packages = proto.RepeatedField(proto.MESSAGE, number=1,
+        message='Package',
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
