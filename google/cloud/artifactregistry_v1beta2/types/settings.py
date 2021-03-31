@@ -17,9 +17,7 @@
 
 
 __protobuf__ = proto.module(
-    package='google.devtools.artifactregistry.v1beta2',
-    manifest={
-    },
+    package="google.devtools.artifactregistry.v1beta2", manifest={},
 )
 
 

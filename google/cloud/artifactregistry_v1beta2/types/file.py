@@ -22,13 +22,13 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package='google.devtools.artifactregistry.v1beta2',
+    package="google.devtools.artifactregistry.v1beta2",
     manifest={
-        'Hash',
-        'File',
-        'ListFilesRequest',
-        'ListFilesResponse',
-        'GetFileRequest',
+        "Hash",
+        "File",
+        "ListFilesRequest",
+        "ListFilesResponse",
+        "GetFileRequest",
     },
 )
 
@@ -42,14 +42,13 @@ class Hash(proto.Message):
         value (bytes):
             The hash value.
     """
+
     class HashType(proto.Enum):
         r"""The algorithm used to compute the hash."""
         HASH_TYPE_UNSPECIFIED = 0
         SHA256 = 1
 
-    type_ = proto.Field(proto.ENUM, number=1,
-        enum=HashType,
-    )
+    type_ = proto.Field(proto.ENUM, number=1, enum=HashType,)
 
     value = proto.Field(proto.BYTES, number=2)
 
@@ -80,17 +79,11 @@ class File(proto.Message):
 
     size_bytes = proto.Field(proto.INT64, number=3)
 
-    hashes = proto.RepeatedField(proto.MESSAGE, number=4,
-        message='Hash',
-    )
+    hashes = proto.RepeatedField(proto.MESSAGE, number=4, message="Hash",)
 
-    create_time = proto.Field(proto.MESSAGE, number=5,
-        message=timestamp.Timestamp,
-    )
+    create_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
 
-    update_time = proto.Field(proto.MESSAGE, number=6,
-        message=timestamp.Timestamp,
-    )
+    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
 
     owner = proto.Field(proto.STRING, number=7)
 
@@ -148,9 +141,7 @@ class ListFilesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    files = proto.RepeatedField(proto.MESSAGE, number=1,
-        message='File',
-    )
+    files = proto.RepeatedField(proto.MESSAGE, number=1, message="File",)
 
     next_page_token = proto.Field(proto.STRING, number=2)
 

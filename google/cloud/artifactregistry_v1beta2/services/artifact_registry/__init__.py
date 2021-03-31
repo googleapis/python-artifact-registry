@@ -19,6 +19,6 @@ from .client import ArtifactRegistryClient
 from .async_client import ArtifactRegistryAsyncClient
 
 __all__ = (
-    'ArtifactRegistryClient',
-    'ArtifactRegistryAsyncClient',
+    "ArtifactRegistryClient",
+    "ArtifactRegistryAsyncClient",
 )
