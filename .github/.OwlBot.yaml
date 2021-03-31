@@ -25,6 +25,8 @@ deep-preserve-regex:
   - /setup.py
   - /README.rst
   - /docs/index.rst
+  - /docs/README.rst
+  - /docs/changelog.md
 
 deep-copy-regex:
   - source: /google/devtools/artifactregistry/(.*)/.*-py/(.*)
