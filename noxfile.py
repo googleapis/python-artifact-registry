@@ -33,6 +33,8 @@ UNIT_TEST_PYTHON_VERSIONS=["3.6","3.7","3.8","3.9"]
 
 CURRENT_DIRECTORY = pathlib.Path(__file__).parent.absolute()
 
+CURRENT_DIRECTORY = pathlib.Path(__file__).parent.absolute()
+
 # 'docfx' is excluded since it only needs to run in 'docs-presubmit'
 nox.options.sessions = [
     "unit",
@@ -95,12 +97,12 @@ def default(session):
         CURRENT_DIRECTORY / "testing" / f"constraints-{session.python}.txt"
     )
     session.install("asyncmock", "pytest-asyncio", "-c", constraints_path)
-    
+
     session.install("mock", "pytest", "pytest-cov",  "-c", constraints_path)
-    
-    
+
+
     session.install("-e", ".", "-c", constraints_path)
-    
+
 
     # Run py.test against the unit tests.
     session.run(
@@ -155,7 +157,7 @@ def system(session):
     # virtualenv's dist-packages.
     session.install("mock", "pytest", "google-cloud-testutils", "-c", constraints_path)
     session.install("-e", ".", "-c", constraints_path)
-    
+
 
     # Run py.test against the system tests.
     if system_test_exists:
@@ -214,9 +216,7 @@ def docfx(session):
     """Build the docfx yaml files for this library."""
 
     session.install("-e", ".")
-    # sphinx-docfx-yaml supports up to sphinx version 1.5.5.
-    # https://github.com/docascode/sphinx-docfx-yaml/issues/97
-    session.install("sphinx==1.5.5", "alabaster", "recommonmark", "sphinx-docfx-yaml")
+    session.install("sphinx", "alabaster", "recommonmark", "gcp-sphinx-docfx-yaml")
 
     shutil.rmtree(os.path.join("docs", "_build"), ignore_errors=True)
     session.run(
