@@ -23,15 +23,15 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package='google.devtools.artifactregistry.v1beta2',
+    package="google.devtools.artifactregistry.v1beta2",
     manifest={
-        'Repository',
-        'ListRepositoriesRequest',
-        'ListRepositoriesResponse',
-        'GetRepositoryRequest',
-        'CreateRepositoryRequest',
-        'UpdateRepositoryRequest',
-        'DeleteRepositoryRequest',
+        "Repository",
+        "ListRepositoriesRequest",
+        "ListRepositoriesResponse",
+        "GetRepositoryRequest",
+        "CreateRepositoryRequest",
+        "UpdateRepositoryRequest",
+        "DeleteRepositoryRequest",
     },
 )
 
@@ -71,6 +71,7 @@ class Repository(proto.Message):
             This value may not be changed after the Repository has been
             created.
     """
+
     class Format(proto.Enum):
         r"""A package format."""
         FORMAT_UNSPECIFIED = 0
@@ -78,21 +79,15 @@ class Repository(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    format_ = proto.Field(proto.ENUM, number=2,
-        enum=Format,
-    )
+    format_ = proto.Field(proto.ENUM, number=2, enum=Format,)
 
     description = proto.Field(proto.STRING, number=3)
 
     labels = proto.MapField(proto.STRING, proto.STRING, number=4)
 
-    create_time = proto.Field(proto.MESSAGE, number=5,
-        message=timestamp.Timestamp,
-    )
+    create_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
 
-    update_time = proto.Field(proto.MESSAGE, number=6,
-        message=timestamp.Timestamp,
-    )
+    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
 
     kms_key_name = proto.Field(proto.STRING, number=8)
 
@@ -135,9 +130,7 @@ class ListRepositoriesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    repositories = proto.RepeatedField(proto.MESSAGE, number=1,
-        message='Repository',
-    )
+    repositories = proto.RepeatedField(proto.MESSAGE, number=1, message="Repository",)
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -170,9 +163,7 @@ class CreateRepositoryRequest(proto.Message):
 
     repository_id = proto.Field(proto.STRING, number=2)
 
-    repository = proto.Field(proto.MESSAGE, number=3,
-        message='Repository',
-    )
+    repository = proto.Field(proto.MESSAGE, number=3, message="Repository",)
 
 
 class UpdateRepositoryRequest(proto.Message):
@@ -188,13 +179,9 @@ class UpdateRepositoryRequest(proto.Message):
             https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
     """
 
-    repository = proto.Field(proto.MESSAGE, number=1,
-        message='Repository',
-    )
+    repository = proto.Field(proto.MESSAGE, number=1, message="Repository",)
 
-    update_mask = proto.Field(proto.MESSAGE, number=2,
-        message=field_mask.FieldMask,
-    )
+    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
 
 
 class DeleteRepositoryRequest(proto.Message):
