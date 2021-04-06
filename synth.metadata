@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-artifact-registry.git",
-        "sha": "c07faf806ea83a976d1fa437d2ec70c6043b5834"
+        "sha": "cd76db6d31048ee951d5bea4919c785680b8193c"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "6598bb829c9e9a534be674649ffd1b4671a821f9",
-        "internalRef": "364449524"
+        "sha": "2490be32f08cccc870862ea86920f58325795c89",
+        "internalRef": "366826395"
       }
     },
     {

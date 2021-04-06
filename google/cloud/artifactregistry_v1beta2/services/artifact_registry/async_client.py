@@ -40,7 +40,7 @@ from google.cloud.artifactregistry_v1beta2.types import tag
 from google.cloud.artifactregistry_v1beta2.types import tag as gda_tag
 from google.cloud.artifactregistry_v1beta2.types import version
 from google.iam.v1 import iam_policy_pb2 as iam_policy  # type: ignore
-from google.iam.v1 import policy_pb2 as policy  # type: ignore
+from google.iam.v1 import policy_pb2 as giv_policy  # type: ignore
 from google.protobuf import empty_pb2 as empty  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
@@ -1771,7 +1771,7 @@ class ArtifactRegistryAsyncClient:
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    ) -> giv_policy.Policy:
         r"""Updates the IAM policy for a given resource.
 
         Args:
@@ -1878,7 +1878,7 @@ class ArtifactRegistryAsyncClient:
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    ) -> giv_policy.Policy:
         r"""Gets the IAM policy for a given resource.
 
         Args:
