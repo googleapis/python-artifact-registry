@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-artifact-registry.git",
-        "sha": "044250bebbb760901ded0d624d2bc5e65342e723"
+        "sha": "3660b10b3f21f0e8ab64585eeb0723298d6a1679"
       }
     },
     {
@@ -105,6 +105,7 @@
     "docs/artifactregistry_v1beta2/types.rst",
     "docs/conf.py",
     "docs/multiprocessing.rst",
+    "google-cloud-artifactregistry-v1beta2-py.tar.gz",
     "google/cloud/artifactregistry/__init__.py",
     "google/cloud/artifactregistry/py.typed",
     "google/cloud/artifactregistry_v1beta2/__init__.py",
