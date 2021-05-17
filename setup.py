@@ -22,7 +22,7 @@ import setuptools  # type: ignore
 name = "google-cloud-artifact-registry"
 version = "0.1.0"
 description = "Artifact Registry API client library"
-release_status = "Development Status :: 4 - Beta"
+release_status = "Development Status :: 5 - Production/Stable"
 url = "https://github.com/googleapis/python-artifact-registry"
 dependencies = [
     "google-api-core[grpc] >= 1.22.2, < 2.0.0dev",
