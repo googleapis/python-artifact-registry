@@ -13,7 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.protobuf import timestamp_pb2  # type: ignore
 
@@ -32,6 +34,7 @@ __protobuf__ = proto.module(
 
 class Hash(proto.Message):
     r"""A hash of file content.
+
     Attributes:
         type_ (google.cloud.artifactregistry_v1beta2.types.Hash.HashType):
             The algorithm used to compute the hash value.
