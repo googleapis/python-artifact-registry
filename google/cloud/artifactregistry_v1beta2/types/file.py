@@ -32,7 +32,6 @@ __protobuf__ = proto.module(
 
 class Hash(proto.Message):
     r"""A hash of file content.
-
     Attributes:
         type_ (google.cloud.artifactregistry_v1beta2.types.Hash.HashType):
             The algorithm used to compute the hash value.
