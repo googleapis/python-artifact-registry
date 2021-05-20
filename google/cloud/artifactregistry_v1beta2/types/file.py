@@ -32,6 +32,7 @@ __protobuf__ = proto.module(
 
 class Hash(proto.Message):
     r"""A hash of file content.
+
     Attributes:
         type_ (google.cloud.artifactregistry_v1beta2.types.Hash.HashType):
             The algorithm used to compute the hash value.
@@ -80,6 +81,7 @@ class File(proto.Message):
 
 class ListFilesRequest(proto.Message):
     r"""The request to list files.
+
     Attributes:
         parent (str):
             The name of the parent resource whose files
@@ -114,6 +116,7 @@ class ListFilesRequest(proto.Message):
 
 class ListFilesResponse(proto.Message):
     r"""The response from listing files.
+
     Attributes:
         files (Sequence[google.cloud.artifactregistry_v1beta2.types.File]):
             The files returned.
@@ -132,6 +135,7 @@ class ListFilesResponse(proto.Message):
 
 class GetFileRequest(proto.Message):
     r"""The request to retrieve a file.
+
     Attributes:
         name (str):
             The name of the file to retrieve.
