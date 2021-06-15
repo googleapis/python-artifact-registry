@@ -48,10 +48,10 @@ setuptools.setup(
     license="Apache 2.0",
     url=url,
     packages=[
-                package
-                for package in setuptools.PEP420PackageFinder.find()
-                if package.startswith("google")
-            \<g1>],
+        package
+        for package in setuptools.PEP420PackageFinder.find()
+        if package.startswith("google")
+    ],
     namespace_packages=("google", "google.cloud"),
     platforms="Posix; MacOS X; Windows",
     include_package_data=True,
