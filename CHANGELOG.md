@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.3](https://www.github.com/googleapis/python-artifact-registry/compare/v0.2.2...v0.2.3) (2021-06-22)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-artifact-registry/issues/1127)) ([#41](https://www.github.com/googleapis/python-artifact-registry/issues/41)) ([7ae05ed](https://www.github.com/googleapis/python-artifact-registry/commit/7ae05eddef4fce0f3f09774e835381f901a6a031)), closes [#1126](https://www.github.com/googleapis/python-artifact-registry/issues/1126)
+
 ### [0.2.2](https://www.github.com/googleapis/python-artifact-registry/compare/v0.2.1...v0.2.2) (2021-06-16)
 
 
