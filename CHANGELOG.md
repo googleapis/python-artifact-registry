@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/googleapis/python-artifact-registry/compare/v0.3.2...v0.4.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#55](https://www.github.com/googleapis/python-artifact-registry/issues/55)) ([55773fe](https://www.github.com/googleapis/python-artifact-registry/commit/55773fe0ab33a8aa5c8b6669eb75e9615f226db0))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#59](https://www.github.com/googleapis/python-artifact-registry/issues/59)) ([bb98a8c](https://www.github.com/googleapis/python-artifact-registry/commit/bb98a8cfcbfadf95ef72499d8bf1fb4ae2e1b599))
+
 ### [0.3.2](https://www.github.com/googleapis/python-artifact-registry/compare/v0.3.1...v0.3.2) (2021-07-20)
 
 
