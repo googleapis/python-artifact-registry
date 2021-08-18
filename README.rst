@@ -56,10 +56,9 @@ Mac/Linux
 
 .. code-block:: console
 
-    pip install virtualenv
-    virtualenv <your-env>
+    python3 -m venv <your-env>
     source <your-env>/bin/activate
-    <your-env>/bin/pip install google-cloud-artifact-registry
+    pip3 install google-cloud-artifact-registry
 
 
 Windows
@@ -67,10 +66,9 @@ Windows
 
 .. code-block:: console
 
-    pip install virtualenv
-    virtualenv <your-env>
+    python3 -m venv <your-env>
     <your-env>\Scripts\activate
-    <your-env>\Scripts\pip.exe install google-cloud-artifact-registry
+    pip3 install google-cloud-artifact-registry
 
 Next Steps
 ~~~~~~~~~~
