@@ -40,15 +40,15 @@ In order to use this library, you first need to go through the following steps:
 Installation
 ~~~~~~~~~~~~
 
-Install this library in a `virtualenv`_ using pip. `virtualenv`_ is a tool to
-create isolated Python environments. The basic problem it addresses is one of
+Install this library within a Python virtual environment using the `venv`_ module. `venv`_ is a tool to
+create isolated Python environments. The basic problem this addresses is one of
 dependencies and versions, and indirectly permissions.
 
-With `virtualenv`_, it's possible to install this library without needing system
+With `venv`_, it's possible to install this library without needing system
 install permissions, and without clashing with the installed system
 dependencies.
 
-.. _`virtualenv`: https://virtualenv.pypa.io/en/latest/
+.. _`venv`: https://docs.python.org/3/library/venv.html
 
 
 Mac/Linux
