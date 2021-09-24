@@ -35,6 +35,7 @@ __protobuf__ = proto.module(
 
 class Repository(proto.Message):
     r"""A Repository for storing artifacts with a specific format.
+
     Attributes:
         name (str):
             The name of the repository, for example:
@@ -84,6 +85,7 @@ class Repository(proto.Message):
 
 class ListRepositoriesRequest(proto.Message):
     r"""The request to list repositories.
+
     Attributes:
         parent (str):
             The name of the parent resource whose
@@ -103,6 +105,7 @@ class ListRepositoriesRequest(proto.Message):
 
 class ListRepositoriesResponse(proto.Message):
     r"""The response from listing repositories.
+
     Attributes:
         repositories (Sequence[google.cloud.artifactregistry_v1beta2.types.Repository]):
             The repositories returned.
@@ -122,6 +125,7 @@ class ListRepositoriesResponse(proto.Message):
 
 class GetRepositoryRequest(proto.Message):
     r"""The request to retrieve a repository.
+
     Attributes:
         name (str):
             The name of the repository to retrieve.
@@ -132,6 +136,7 @@ class GetRepositoryRequest(proto.Message):
 
 class CreateRepositoryRequest(proto.Message):
     r"""The request to create a new repository.
+
     Attributes:
         parent (str):
             The name of the parent resource where the
@@ -149,6 +154,7 @@ class CreateRepositoryRequest(proto.Message):
 
 class UpdateRepositoryRequest(proto.Message):
     r"""The request to update a repository.
+
     Attributes:
         repository (google.cloud.artifactregistry_v1beta2.types.Repository):
             The repository that replaces the resource on
@@ -167,6 +173,7 @@ class UpdateRepositoryRequest(proto.Message):
 
 class DeleteRepositoryRequest(proto.Message):
     r"""The request to delete a repository.
+
     Attributes:
         name (str):
             The name of the repository to delete.

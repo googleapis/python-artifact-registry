@@ -28,7 +28,9 @@ class DockerImage(proto.Message):
     r"""DockerImage represents a docker artifact.
     The following fields are returned as untyped metadata in the
     Version resource, using camelcase keys (i.e.
-    metadata.imageSizeBytes):   - imageSizeBytes
+    metadata.imageSizeBytes):
+
+      - imageSizeBytes
       - mediaType
       - buildTime
 
@@ -85,6 +87,7 @@ class DockerImage(proto.Message):
 
 class ListDockerImagesRequest(proto.Message):
     r"""The request to list docker images.
+
     Attributes:
         parent (str):
             Required. The name of the parent resource
@@ -103,6 +106,7 @@ class ListDockerImagesRequest(proto.Message):
 
 class ListDockerImagesResponse(proto.Message):
     r"""The response from listing docker images.
+
     Attributes:
         docker_images (Sequence[google.cloud.artifactregistry_v1.types.DockerImage]):
             The docker images returned.
