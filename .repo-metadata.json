@@ -11,5 +11,5 @@
     "distribution_name": "google-cloud-artifact-registry",
     "api_id": "artifactregistry.googleapis.com",
     "codeowner_team": "@googleapis/cicd",
-    "default_version": ""
+    "default_version": "v1"
 }
