@@ -3,7 +3,8 @@
 .. include:: multiprocessing.rst
 
 This package includes clients for multiple versions of Artifact Registry.
-By default, you will get version ``v1``.
+By default, you will get version ``artifactregistry_v1``.
+
 
 API Reference
 -------------
