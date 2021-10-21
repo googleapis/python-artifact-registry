@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.1](https://www.github.com/googleapis/python-artifact-registry/compare/v0.5.0...v0.5.1) (2021-10-21)
+
+
+### Documentation
+
+* fix docstring formatting ([#93](https://www.github.com/googleapis/python-artifact-registry/issues/93)) ([e6c2084](https://www.github.com/googleapis/python-artifact-registry/commit/e6c208427336e8c9d5a5d607c02406c856af6a94))
+
 ## [0.5.0](https://www.github.com/googleapis/python-artifact-registry/compare/v0.4.1...v0.5.0) (2021-10-11)
 
 
