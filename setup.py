@@ -20,18 +20,17 @@ import os
 import setuptools  # type: ignore
 
 name = "google-cloud-artifact-registry"
-version = "0.5.0"
+version = "1.0.1"
 description = "Artifact Registry API client library"
-release_status = "Development Status :: 4 - Beta"
+release_status = "Development Status :: 5 - Production/Stable"
 url = "https://github.com/googleapis/python-artifact-registry"
 dependencies = [
     # NOTE: Maintainers, please do not require google-api-core>=2.x.x
     # Until this issue is closed
     # https://github.com/googleapis/google-cloud-python/issues/10566
-    "google-api-core[grpc] >= 1.26.0, <3.0.0dev",
+    "google-api-core[grpc] >= 1.28.0, <3.0.0dev",
     "libcst >= 0.2.5",
     "proto-plus >= 1.4.0",
-    "packaging >= 14.3",
     "grpc-google-iam-v1",
 ]
 
