@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -636,7 +636,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_docker_images():
                 # Create a client
@@ -744,7 +744,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_docker_image():
                 # Create a client
@@ -845,7 +845,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_import_apt_artifacts():
                 # Create a client
@@ -938,7 +938,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_import_yum_artifacts():
                 # Create a client
@@ -1027,7 +1027,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_repositories():
                 # Create a client
@@ -1135,7 +1135,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_repository():
                 # Create a client
@@ -1235,7 +1235,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_create_repository():
                 # Create a client
@@ -1364,7 +1364,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_update_repository():
                 # Create a client
@@ -1473,7 +1473,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_delete_repository():
                 # Create a client
@@ -1592,7 +1592,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_packages():
                 # Create a client
@@ -1698,7 +1698,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_package():
                 # Create a client
@@ -1795,7 +1795,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_delete_package():
                 # Create a client
@@ -1914,7 +1914,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_versions():
                 # Create a client
@@ -2019,7 +2019,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_version():
                 # Create a client
@@ -2116,7 +2116,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_delete_version():
                 # Create a client
@@ -2232,7 +2232,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_files():
                 # Create a client
@@ -2338,7 +2338,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_file():
                 # Create a client
@@ -2430,7 +2430,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_list_tags():
                 # Create a client
@@ -2535,7 +2535,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_tag():
                 # Create a client
@@ -2629,7 +2629,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_create_tag():
                 # Create a client
@@ -2740,7 +2740,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_update_tag():
                 # Create a client
@@ -2845,7 +2845,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_delete_tag():
                 # Create a client
@@ -2923,7 +2923,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_set_iam_policy():
                 # Create a client
@@ -3057,7 +3057,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_iam_policy():
                 # Create a client
@@ -3193,7 +3193,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_test_iam_permissions():
                 # Create a client
@@ -3268,7 +3268,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_get_project_settings():
                 # Create a client
@@ -3364,7 +3364,7 @@ class ArtifactRegistryClient(metaclass=ArtifactRegistryClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import artifactregistry_v1
+                    from google.cloud import artifactregistry_v1
 
             def sample_update_project_settings():
                 # Create a client
