@@ -8309,7 +8309,6 @@ def test_artifact_registry_transport_auth_adc(transport_class):
     [
         transports.ArtifactRegistryGrpcTransport,
         transports.ArtifactRegistryGrpcAsyncIOTransport,
-        transports.ArtifactRegistryRestTransport,
     ],
 )
 def test_artifact_registry_transport_auth_gdch_credentials(transport_class):
