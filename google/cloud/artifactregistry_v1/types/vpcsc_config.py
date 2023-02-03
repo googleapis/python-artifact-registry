@@ -15,17 +15,15 @@
 #
 from typing import MutableMapping, MutableSequence
 
+from google.protobuf import field_mask_pb2  # type: ignore
 import proto  # type: ignore
 
-from google.protobuf import field_mask_pb2  # type: ignore
-
-
 __protobuf__ = proto.module(
-    package='google.devtools.artifactregistry.v1',
+    package="google.devtools.artifactregistry.v1",
     manifest={
-        'VPCSCConfig',
-        'GetVPCSCConfigRequest',
-        'UpdateVPCSCConfigRequest',
+        "VPCSCConfig",
+        "GetVPCSCConfigRequest",
+        "UpdateVPCSCConfigRequest",
     },
 )
 
@@ -45,6 +43,7 @@ class VPCSCConfig(proto.Message):
             defines the VPC SC behavior for the Remote
             Repository (Allow/Deny).
     """
+
     class VPCSCPolicy(proto.Enum):
         r"""VPCSCPolicy is the VPC SC policy for project and location.
 
@@ -102,10 +101,10 @@ class UpdateVPCSCConfigRequest(proto.Message):
             Field mask to support partial updates.
     """
 
-    vpcsc_config: 'VPCSCConfig' = proto.Field(
+    vpcsc_config: "VPCSCConfig" = proto.Field(
         proto.MESSAGE,
         number=1,
-        message='VPCSCConfig',
+        message="VPCSCConfig",
     )
     update_mask: field_mask_pb2.FieldMask = proto.Field(
         proto.MESSAGE,
